@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <section id="board">
+    <div class="container">
+      <input type="text" v-model="newTaskName" placeholder="入力するんやで" v-on:keyup.enter="addTask(newTaskName)">
+      <input type="number" v-model="newTaskMandays" />
+      <button @click="addTask">追加</button>
+      <hr>
+      <div class="InnerContainer">
+        <div class="status-1 dark">
+          <div class="tags">
+            <span class="tag">12:00</span>
+          </div>
+          <transition-group name="fade">
+            <task-card :task="task" v-for="task in tasks12" :key="task.name"></task-card>
+          </transition-group>
+        </div>
+        <div class="status-2 bright">
+          <div class="tags">
+            <span class="tag">13:00</span>
+          </div>
+          <transition-group name="fade">
+            <task-card :task="task" v-for="task in tasks13" :key="task.name"></task-card>
+          </transition-group>
+        </div>
+        <div class="status-3 dark">
+          <div class="tags">
+            <span class="tag">14:00</span>
+          </div>
+          <transition-group name="fade">
+            <task-card :task="task" v-for="task in tasks14" :key="task.name"></task-card>
+          </transition-group>
+        </div>
+        <div class="status-4 bright">
+          <div class="tags">
+            <span class="tag">15:00</span>
+          </div>
+          <transition-group name="fade">
+            <task-card :task="task" v-for="task in tasks15" :key="task.name"></task-card>
+          </transition-group>
+        </div>
+        </div>
+        <button v-on:click="deleteTodo()">チェック済みの項目を削除する</button>
+    </div>
+  </section>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.16.0/vuedraggable.min.js"></script>
+<script type='text/javascript' src="js/function.js"></script>
+</html>
