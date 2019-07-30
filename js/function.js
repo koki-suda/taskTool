@@ -1,22 +1,52 @@
 var filters = {
-	twelve: function (tasks) {
+	nine: function (tasks) {
   	return tasks.filter(function (task) {
     	return task.status === 1
     })
   },
-	thirteen: function (tasks) {
+	ten: function (tasks) {
   	return tasks.filter(function (task) {
     	return task.status === 2
     })
   },
-  fourteen: function (tasks) {
+	eleven: function (tasks) {
   	return tasks.filter(function (task) {
     	return task.status === 3
     })
   },
-  fifteen: function (tasks) {
+	twelve: function (tasks) {
   	return tasks.filter(function (task) {
     	return task.status === 4
+    })
+  },
+	thirteen: function (tasks) {
+  	return tasks.filter(function (task) {
+    	return task.status === 5
+    })
+  },
+  fourteen: function (tasks) {
+  	return tasks.filter(function (task) {
+    	return task.status === 6
+    })
+  },
+  fifteen: function (tasks) {
+  	return tasks.filter(function (task) {
+    	return task.status === 7
+    })
+  },
+  sixteen: function (tasks) {
+  	return tasks.filter(function (task) {
+    	return task.status === 8
+    })
+  },
+  seventeen: function (tasks) {
+  	return tasks.filter(function (task) {
+    	return task.status === 9
+    })
+  },
+  eighteen: function (tasks) {
+  	return tasks.filter(function (task) {
+    	return task.status === 10
     })
   }
 }
@@ -29,7 +59,7 @@ Vue.component('task-card', {
              </label>
             <footer class="card-footer">
               <div class="card-footer-item">
-                {{ task.mandays }} 
+                {{ task.mandays }}
               </div>
             </footer>
             <footer class="card-footer">
@@ -39,12 +69,12 @@ Vue.component('task-card', {
           </div>`,
   methods: {
     incrementStatus: function (task) {
-      if(1 <= task.status && task.status <= 3) {
+      if(1 <= task.status && task.status <= 9) {
         task.status++
       }
     },
     decrementStatus: function (task) {
-      if(2 <= task.status && task.status <= 4) {
+      if(2 <= task.status && task.status <= 10) {
         task.status--
       }
     }
@@ -54,16 +84,20 @@ Vue.component('task-card', {
 new Vue({
 	el: '#board',
   data: {
-    tasks: [
-    	{ name: 'task 1', status: 1, mandays: 3 },
-      { name: 'task 2', status: 1, mandays: 2 },
-      { name: 'task 3', status: 2, mandays: 1 },
-      { name: 'task 4', status: 3, mandays: 1 }
-    ],
+    tasks: [],
     newTaskName: '',
     newTaskMandays: 0
   },
   computed: {
+    tasks9: function () {
+      return filters.nine(this.tasks)
+    },
+    tasks10: function () {
+      return filters.ten(this.tasks)
+    },
+    tasks11: function () {
+      return filters.eleven(this.tasks)
+    },
     tasks12: function () {
       return filters.twelve(this.tasks)
     },
@@ -75,13 +109,22 @@ new Vue({
     },
     tasks15: function () {
       return filters.fifteen(this.tasks)
+    },
+    tasks16: function () {
+      return filters.sixteen(this.tasks)
+    },
+    tasks17: function () {
+      return filters.seventeen(this.tasks)
+    },
+    tasks18: function () {
+      return filters.eighteen(this.tasks)
     }
   },
   methods: {
   	addTask () {
-    	this.tasks.push({ 
-       name: this.newTaskName, 
-       status: 1, 
+    	this.tasks.push({
+       name: this.newTaskName,
+       status: 1,
        mandays: this.newTaskMandays,
        isChecked: false
       });

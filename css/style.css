@@ -1,14 +1,15 @@
 .InnerContainer {
-    display: flex
+    display: flex;
+    justify-content: space-between;
   }
 
 .bright {
     background-color: #999999;
-    width: 150px;
+    width: 100%;
   }
 .dark {
     background-color: #dddddd;
-    width: 150px;
+    width: 100%;
   }
 .card {
     margin-bottom: 5px;
@@ -27,3 +28,9 @@
 .done { 
   text-decoration: line-through; 
   }
+
+@media screen and (max-width: 480px) {
+  .InnerContainer {
+    display: block;
+  }
+}

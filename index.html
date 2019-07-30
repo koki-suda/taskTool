@@ -1,6 +1,18 @@
 <!DOCTYPE html>
+<html lang="ja">
 <head>
-<link href="css/style.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>taskTool</title>
+    <meta name="description" content="taskTool">
+    <meta property="og:title" content="taskTool" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="taskTool" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="taskTool" />
+    <meta property="og:image" content="" />
+    <link rel="shortcut icon" href="">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
   <section id="board">
@@ -12,13 +24,37 @@
       <div class="InnerContainer">
         <div class="status-1 dark">
           <div class="tags">
+            <span class="tag">9:00</span>
+          </div>
+          <transition-group name="fade">
+            <task-card :task="task" v-for="task in tasks9" :key="task.name"></task-card>
+          </transition-group>
+        </div>
+        <div class="status-2 bright">
+          <div class="tags">
+            <span class="tag">10:00</span>
+          </div>
+          <transition-group name="fade">
+            <task-card :task="task" v-for="task in tasks10" :key="task.name"></task-card>
+          </transition-group>
+        </div>
+        <div class="status-3 dark">
+          <div class="tags">
+            <span class="tag">11:00</span>
+          </div>
+          <transition-group name="fade">
+            <task-card :task="task" v-for="task in tasks11" :key="task.name"></task-card>
+          </transition-group>
+        </div>
+        <div class="status-4 bright">
+          <div class="tags">
             <span class="tag">12:00</span>
           </div>
           <transition-group name="fade">
             <task-card :task="task" v-for="task in tasks12" :key="task.name"></task-card>
           </transition-group>
         </div>
-        <div class="status-2 bright">
+        <div class="status-5 dark">
           <div class="tags">
             <span class="tag">13:00</span>
           </div>
@@ -26,7 +62,7 @@
             <task-card :task="task" v-for="task in tasks13" :key="task.name"></task-card>
           </transition-group>
         </div>
-        <div class="status-3 dark">
+        <div class="status-6 bright">
           <div class="tags">
             <span class="tag">14:00</span>
           </div>
@@ -34,7 +70,7 @@
             <task-card :task="task" v-for="task in tasks14" :key="task.name"></task-card>
           </transition-group>
         </div>
-        <div class="status-4 bright">
+        <div class="status-7 dark">
           <div class="tags">
             <span class="tag">15:00</span>
           </div>
@@ -42,13 +78,38 @@
             <task-card :task="task" v-for="task in tasks15" :key="task.name"></task-card>
           </transition-group>
         </div>
+        <div class="status-8 bright">
+            <div class="tags">
+              <span class="tag">16:00</span>
+            </div>
+            <transition-group name="fade">
+              <task-card :task="task" v-for="task in tasks16" :key="task.name"></task-card>
+            </transition-group>
+          </div>
+        <div class="status-9 dark">
+          <div class="tags">
+            <span class="tag">17:00</span>
+          </div>
+          <transition-group name="fade">
+            <task-card :task="task" v-for="task in tasks17" :key="task.name"></task-card>
+          </transition-group>
         </div>
-        <button v-on:click="deleteTodo()">チェック済みの項目を削除する</button>
+        <div class="status-10 bright">
+          <div class="tags">
+            <span class="tag">18:00</span>
+          </div>
+          <transition-group name="fade">
+            <task-card :task="task" v-for="task in tasks18" :key="task.name"></task-card>
+          </transition-group>
+        </div>
+        </div>
+        <button v-on:click="deleteTodo()">チェックの項目を削除</button>
     </div>
   </section>
 </body>
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.16.0/vuedraggable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.10.0-rc3/Sortable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.16.0/vuedraggable.min.js
+"></script>
 <script type='text/javascript' src="js/function.js"></script>
 </html>
